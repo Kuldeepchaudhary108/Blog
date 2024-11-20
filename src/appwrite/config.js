@@ -35,6 +35,7 @@ export class Service {
           content,
           featuredImage,
           status,
+          userId,
         }
       );
     } catch (error) {
@@ -52,7 +53,7 @@ export class Service {
       throw error;
     }
   }
-  async getpost() {
+  async getPost() {
     try {
       return await this.database.getDocument(
         config.appwriteDataBaseId,
@@ -63,7 +64,7 @@ export class Service {
       throw error;
     }
   }
-  async getposts(queries = [Query.equal("status", "active")]) {
+  async getPosts(queries = [Query.equal("status", "active")]) {
     try {
       return await this.database.listDocuments(
         config.appwriteDataBaseId,
